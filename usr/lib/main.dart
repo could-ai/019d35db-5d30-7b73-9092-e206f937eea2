@@ -10,15 +10,15 @@ class CVApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My CV',
+      title: 'Pragya Parashar - CV',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blueGrey,
+          seedColor: Colors.teal,
           brightness: Brightness.light,
         ),
         useMaterial3: true,
-        fontFamily: 'Roboto', // Default clean font
+        fontFamily: 'Roboto',
       ),
       initialRoute: '/',
       routes: {
@@ -47,33 +47,50 @@ class CVScreen extends StatelessWidget {
               const SizedBox(height: 12),
               _buildSummary(),
               const SizedBox(height: 32),
-              _buildSectionTitle(context, 'Experience'),
-              const SizedBox(height: 16),
-              _buildExperienceItem(
-                context,
-                role: 'Senior Flutter Developer',
-                company: 'Tech Solutions Inc.',
-                period: 'Jan 2021 - Present',
-                description:
-                    'Lead the development of cross-platform mobile applications using Flutter. Architected scalable state management solutions and mentored junior developers. Improved app performance by 40%.',
-              ),
-              const SizedBox(height: 16),
-              _buildExperienceItem(
-                context,
-                role: 'Mobile App Developer',
-                company: 'Creative App Studio',
-                period: 'Jun 2018 - Dec 2020',
-                description:
-                    'Developed and maintained multiple iOS and Android applications. Collaborated with UI/UX designers to implement pixel-perfect designs. Integrated RESTful APIs and third-party services.',
-              ),
-              const SizedBox(height: 32),
               _buildSectionTitle(context, 'Education'),
               const SizedBox(height: 16),
               _buildEducationItem(
                 context,
-                degree: 'Bachelor of Science in Computer Science',
-                institution: 'University of Technology',
-                period: '2014 - 2018',
+                degree: 'MSc Mathematics',
+                institution: 'Completed',
+                period: '2022',
+              ),
+              const SizedBox(height: 16),
+              _buildEducationItem(
+                context,
+                degree: 'BSc Computer Application',
+                institution: 'Completed',
+                period: '2020',
+              ),
+              const SizedBox(height: 32),
+              _buildSectionTitle(context, 'Internship & Experience'),
+              const SizedBox(height: 16),
+              _buildExperienceItem(
+                context,
+                role: 'Intern',
+                company: 'Govt Polytechnic College, Sagar',
+                period: 'Internship',
+                description:
+                    'Gained practical exposure and applied technical and analytical skills in an educational and institutional environment. Demonstrated strong teamwork and time management capabilities.',
+              ),
+              const SizedBox(height: 32),
+              _buildSectionTitle(context, 'Academic Projects'),
+              const SizedBox(height: 16),
+              _buildExperienceItem(
+                context,
+                role: 'Mathematical Modeling & Analysis',
+                company: 'Project: Laplace Equation',
+                period: 'Academic',
+                description:
+                    'Conducted in-depth study and problem-solving focused on the Laplace equation. Utilized advanced quantitative and analytical skills to explore mathematical applications relevant to science and engineering.',
+              ),
+              const SizedBox(height: 32),
+              _buildSectionTitle(context, 'Certifications'),
+              const SizedBox(height: 16),
+              _buildCertificationItem(
+                context,
+                title: 'Certification in Digital Banking',
+                issuer: 'Upgrade',
               ),
               const SizedBox(height: 32),
               _buildSectionTitle(context, 'Skills'),
@@ -93,16 +110,15 @@ class CVScreen extends StatelessWidget {
       children: [
         const CircleAvatar(
           radius: 60,
-          backgroundColor: Colors.blueGrey,
-          child: Icon(
-            Icons.person,
-            size: 80,
-            color: Colors.white,
+          backgroundColor: Colors.teal,
+          child: Text(
+            'PP',
+            style: TextStyle(fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ),
         const SizedBox(height: 24),
         Text(
-          'Alex Johnson',
+          'Pragya Parashar',
           style: Theme.of(context).textTheme.displaySmall?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: Theme.of(context).colorScheme.onSurface,
@@ -111,7 +127,7 @@ class CVScreen extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          'Software Engineer & Mobile Developer',
+          'Aspiring IT & Banking Professional',
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: Theme.of(context).colorScheme.primary,
               ),
@@ -123,10 +139,10 @@ class CVScreen extends StatelessWidget {
           spacing: 16,
           runSpacing: 8,
           children: [
-            _buildContactInfo(Icons.email, 'alex.johnson@example.com'),
-            _buildContactInfo(Icons.phone, '+1 (555) 123-4567'),
-            _buildContactInfo(Icons.location_on, 'San Francisco, CA'),
-            _buildContactInfo(Icons.link, 'linkedin.com/in/alexjohnson'),
+            _buildContactInfo(Icons.email, 'pragya@example.com'),
+            _buildContactInfo(Icons.phone, '+91 XXXXX XXXXX'),
+            _buildContactInfo(Icons.location_on, 'India'),
+            _buildContactInfo(Icons.link, 'linkedin.com/in/pragyaparashar'),
           ],
         ),
       ],
@@ -170,7 +186,7 @@ class CVScreen extends StatelessWidget {
 
   Widget _buildSummary() {
     return const Text(
-      'Passionate and results-driven Software Engineer with over 5 years of experience in mobile application development. Specialized in Flutter and Dart, with a strong background in native Android and iOS development. Adept at building scalable, high-performance applications and collaborating with cross-functional teams to deliver exceptional user experiences.',
+      'Highly motivated and hardworking fresher with a strong science and mathematics background. Holding an MSc in Mathematics and a BSc in Computer Applications. Eager to leverage my quantitative, data analysis, and problem-solving skills in a dynamic role within a Private Bank or IT Company. Known for excellent relationship building, time management, and a collaborative team-player mindset.',
       style: TextStyle(fontSize: 16, height: 1.5),
     );
   }
@@ -187,7 +203,6 @@ class CVScreen extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Timeline dot and line could go here, keeping it simple for now
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -279,18 +294,52 @@ class CVScreen extends StatelessWidget {
     );
   }
 
+  Widget _buildCertificationItem(
+    BuildContext context, {
+    required String title,
+    required String issuer,
+  }) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(Icons.verified, color: Theme.of(context).colorScheme.primary, size: 20),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                issuer,
+                style: const TextStyle(
+                  fontSize: 15,
+                  color: Colors.black87,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget _buildSkills() {
     final skills = [
-      'Flutter',
-      'Dart',
-      'Swift',
-      'Kotlin',
-      'Firebase',
-      'REST APIs',
-      'Git',
-      'Agile/Scrum',
-      'UI/UX Design',
-      'State Management (Provider, Bloc)',
+      'Quantitative & Analytical Skills',
+      'Data Analysis',
+      'Problem Solving',
+      'Relationship Building',
+      'Time Management',
+      'Teamwork',
+      'Hardworking',
+      'Mathematics & Computing',
     ];
 
     return Wrap(
@@ -299,7 +348,7 @@ class CVScreen extends StatelessWidget {
       children: skills.map((skill) {
         return Chip(
           label: Text(skill),
-          backgroundColor: Colors.blueGrey.withOpacity(0.1),
+          backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.1),
           side: BorderSide.none,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
